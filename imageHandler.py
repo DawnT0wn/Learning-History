@@ -8,6 +8,11 @@ target_folder_name = "images"
 
 # 遍历文件夹及子文件夹
 for root, dirs, files in os.walk(root_folder):
+    # 如果当前目录已经存在 images 子目录，则跳过操作
+    if target_folder_name in dirs:
+        dirs.remove(target_folder_name)
+        continue
+
     for filename in files:
         if filename.endswith(".md") and filename.lower() != "readme.md":
             md_path = os.path.join(root, filename)
@@ -50,7 +55,6 @@ for root, dirs, files in os.walk(root_folder):
                     content = content.replace(image_path, new_image_path)
             except Exception as e:
                 print(e)
-
 
             # 将更新后的内容写回 Markdown 文件
             with open(new_md_path, "w") as f:
