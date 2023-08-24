@@ -16,6 +16,6 @@
 
 python3 water.py "1.pdf"
 
-<img src="images/1.png" alt="image-20230822160822763" style="zoom:50%;" />
+![image-20230824160242124](images/1.png)
 
-![image-20230822160917628](/Users/DawnT0wn/Documents/GitHub/Leaning-History/images/2.png)
+![image-20230822160917628](images/2.png)
