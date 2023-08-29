@@ -9,14 +9,3 @@
 
 批量处理子目录下面的md文件包括图片（处理的本地图床，若是公网的图片，需要修改）
 
-## water.py
-
-对于pdf进行水印添加，把要批量打的文字放到customers中
-
-```
-python3 water.py "1.pdf"
-```
-
-<img src="images/1.png" alt="image-20230824160242124" style="zoom:50%;" />
-
-<img src="images/2.png" alt="image-20230822160917628" style="zoom: 33%;" />
