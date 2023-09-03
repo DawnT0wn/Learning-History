@@ -8,7 +8,7 @@ Kerberos 是一种由 MIT 提出用来在非安全网络中对个人通信进行
 
 整个认证步骤如下图
 
-<img src="/Users/DawnT0wn/Library/Application Support/typora-user-images/image-20230221143934648.png" alt="image-20230221143934648" style="zoom:50%;" />
+![image-20230903150827841](images/1.png)
 
 
 
@@ -144,7 +144,7 @@ privilege::debug
 lsadump::lsa /patch
 ```
 
-![image-20230222184025872](images/1.png)
+![image-20230222184025872](images/2.png)
 
 这里没有再去配置环境，直接用了网上的图
 
@@ -188,7 +188,7 @@ kerberos::golden /user:administrator /domain:hacke.testlab /sid:S-1-5-21-9540943
 
 执行命令的时候用如下命令
 
-![image-20230222184229643](images/2.png)
+![image-20230222184229643](images/3.png)
 
 创建一个的域管账号
 
@@ -205,21 +205,21 @@ net group "domain admins" aaa /add/domain
 
 首先直接用CS的mimikatz抓取hash
 
-![image-20220909134233967](images/3.png)
+![image-20220909134233967](images/4.png)
 
 通过`hashdump`，抓取到了KRBTGT账户NTLM密码哈希，即`82df......`
 
 然后利用logonpasswords获取域的sid
 
-![image-20220909134656633](images/4.png)
+![image-20220909134656633](images/5.png)
 
 #### 伪造TGT
 
 WEB机 Administrator 权限机器->右键->Access->Golden Ticket
 
-![image-20220909134945166](images/5.png)
+![image-20220909134945166](images/6.png)
 
-![image-20220909135003544](images/6.png)
+![image-20220909135003544](images/7.png)
 
 伪造成功，在web机上执行`shell dir \\DC\C$`可以访问域控下的C盘了
 
@@ -242,7 +242,7 @@ WEB机 Administrator 权限机器->右键->Access->Golden Ticket
 
 由此看来，我们只需要知道Server的NTML Hash就能伪造一个ST，而且这个ST不会经过KDC，会更加的隐蔽，但也是由于这个原因，白银票据的权限就不如黄金票据，只能对部分服务起作用，如cifs（文件共享服务），mssql，winrm（windows远程管理），DNS
 
-<img src="/Users/DawnT0wn/Library/Application Support/typora-user-images/image-20230226192657916.png" alt="image-20230226192657916" style="zoom:50%;" />
+![image-20230903150839874](images/8.png)
 
 ## 条件
 
@@ -279,13 +279,13 @@ whoami /all	  //获取SID
 mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords"
 ```
 
-![image-20230226193135855](images/7.png)
+![image-20230226193135855](images/9.png)
 
 可以看到域控的NTLM Hash
 
 其实前面CS的时候，我们用hashdump打印的mimikatz抓到的hash中也有NTLM Hash
 
-![image-20220909134233967](images/3.png)
+![image-20220909134233967](images/4.png)
 
 目标机器的FQDN
 
@@ -321,9 +321,9 @@ kerberos::golden /domain:hacke.testlab /sid:S-1-5-21-954094320-202977030-1482179
 /ptt：注入内存
 ```
 
-![image-20230226193945942](images/9.png)
+![image-20230226193945942](images/11.png)
 
-![image-20230226194004128](images/10.png)
+![image-20230226194004128](images/12.png)
 
 # 金票与银票的区别
 
