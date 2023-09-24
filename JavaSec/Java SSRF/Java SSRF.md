@@ -715,3 +715,5 @@ https://www.cnblogs.com/nice0e3/p/13683023.html
 https://www.freebuf.com/articles/web/319825.html
 
 https://www.leavesongs.com/PYTHON/defend-ssrf-vulnerable-in-python.html
+
+https://su18.org/post/code-audit/
