@@ -192,7 +192,7 @@ public class ProcessImplTest {
         Class Pro = Class.forName("java.lang.ProcessImpl");
         Method method = Pro.getDeclaredMethod("start", String[].class, Map.class, String.class, ProcessBuilder.Redirect[].class, boolean.class);
         method.setAccessible(true);
-        Process p = (Process) method.invoke(null, command, null, ".", null, true);//静态方法,invoke不需要传入对象
+        Process p = (Process) method.invoke(null, new String[]{command}, null, ".", null, true);//静态方法,invoke不需要传入对象
         //获取p的输入流
         InputStream is = p.getInputStream();
         //将缓冲区的数据，转换成字节数组
