@@ -1,6 +1,7 @@
 import os
 import re
 import shutil
+import sys
 
 # 遍历当前文件夹及其子文件夹
 root_folder = "."
@@ -36,9 +37,17 @@ for root, dirs, files in os.walk(root_folder):
             with open(new_md_path, "r") as f:
                 content = f.read()
 
-            # 提取图片路径
-            image_paths = re.findall(r'\((.*?)\)', content)
-            image_paths = [path for path in image_paths if path.startswith("/")]
+            if sys.platform.startswith("darwin"):
+                # mac 提取图片路径
+                image_paths = re.findall(r'\((.*?)\)', content)
+                image_paths += re.findall(r'src="(.*?)"', content)
+                image_paths = [path for path in image_paths if path.startswith("/")]
+            elif sys.platform.startswith("cygwin") or sys.platform.startswith("win32"):
+                # Windows 提取图片路径
+                image_paths = re.findall(r'\((.*?)\)', content)
+                image_paths += re.findall(r'src="(.*?)"', content)
+                image_paths = [path for path in image_paths if re.match(r'^[a-zA-Z]:\\', path)]
+
 
             # 遍历并复制图片到 images 子目录
             try:
