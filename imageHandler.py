@@ -61,6 +61,7 @@ for root, dirs, files in os.walk(root_folder):
 
                     # 替换 Markdown 文件中的图片路径为相对路径
                     new_image_path = os.path.relpath(target_path, start=os.path.dirname(new_md_path))
+                    new_image_path = new_image_path.replace('\\', '/')  # 将反斜杠替换为正斜杠
                     content = content.replace(image_path, new_image_path)
             except Exception as e:
                 print(e)
