@@ -1,63 +1,63 @@
-# å‰è¨€
+# Ç°ÑÔ
 
-åœ¨javaä¸­ï¼Œæˆ‘ä»¬ç»å¸¸çœ‹åˆ°ä¸€äº›ObjectInputStreamï¼ŒFileInputStreamï¼ŒBufferrInputStreamï¼ŒInputStreamç­‰ç­‰ï¼Œè®©äººå¯¹java ioå¯¹ä¸œè¥¿æ•´çš„å¤´æ™•ï¼Œç‰¹æ¥å­¦ä¹ ï¼ŒæŠŠè¿™äº›ä¸œè¥¿åšä¸€ä¸ªåŒºåˆ†
+ÔÚjavaÖÐ£¬ÎÒÃÇ¾­³£¿´µ½Ò»Ð©ObjectInputStream£¬FileInputStream£¬BufferrInputStream£¬InputStreamµÈµÈ£¬ÈÃÈË¶Ôjava io¶Ô¶«Î÷ÕûµÄÍ·ÔÎ£¬ÌØÀ´Ñ§Ï°£¬°ÑÕâÐ©¶«Î÷×öÒ»¸öÇø·Ö
 
-# æµçš„åŸºæœ¬æ¦‚å¿µ
+# Á÷µÄ»ù±¾¸ÅÄî
 
-ç”µè„‘ä¸Šçš„æ•°æ®å­˜å‚¨åˆ†ä¸ºå¤–å­˜ï¼Œå†…å­˜ï¼Œç¼“å­˜ã€‚
+µçÄÔÉÏµÄÊý¾Ý´æ´¢·ÖÎªÍâ´æ£¬ÄÚ´æ£¬»º´æ¡£
 
-ç¡¬ç›˜ï¼ŒUç›˜ç­‰å±žäºŽå¤–å­˜ï¼Œç„¶åŽç”µè„‘æœ‰å†…å­˜æ¡ï¼Œå±žäºŽå†…å­˜ï¼Œç¼“å­˜ä¸Šå­˜åœ¨CPUé‡Œé¢çš„
+Ó²ÅÌ£¬UÅÌµÈÊôÓÚÍâ´æ£¬È»ºóµçÄÔÓÐÄÚ´æÌõ£¬ÊôÓÚÄÚ´æ£¬»º´æÉÏ´æÔÚCPUÀïÃæµÄ
 
-ä¸åŒçš„å­˜å‚¨ï¼Œè¯»å–é€Ÿåº¦è‚¯å®šä¹Ÿä¸ç›¸åŒï¼Œå¤–å­˜æœ€æ…¢ï¼Œå…¶æ¬¡å†…å­˜ï¼Œæœ€å¿«çš„æ˜¯ç¼“å­˜
+²»Í¬µÄ´æ´¢£¬¶ÁÈ¡ËÙ¶È¿Ï¶¨Ò²²»ÏàÍ¬£¬Íâ´æ×îÂý£¬Æä´ÎÄÚ´æ£¬×î¿ìµÄÊÇ»º´æ
 
-è¿™é‡Œæ€»ç»“ä»Žå¤–å­˜è¯»å–æ•°æ®åˆ°å†…å­˜ä»¥åŠå°†æ•°æ®ä»Žå†…å­˜å†™åˆ°å¤–å­˜ä¸­
+ÕâÀï×Ü½á´ÓÍâ´æ¶ÁÈ¡Êý¾Ýµ½ÄÚ´æÒÔ¼°½«Êý¾Ý´ÓÄÚ´æÐ´µ½Íâ´æÖÐ
 
-å¯¹äºŽè¾“å‡ºæµå’Œè¾“å…¥æµçš„ç†è§£ï¼š
+¶ÔÓÚÊä³öÁ÷ºÍÊäÈëÁ÷µÄÀí½â£º
 
-- å°†ideaçš„ä¸œè¥¿è¾“å‡ºåˆ°æ–‡ä»¶ï¼Œå«åšè¾“å‡ºæµ
-- å°†æ–‡ä»¶å†…å®¹è¾“å…¥åˆ°ideaï¼Œç§°ä¸ºè¾“å…¥æµ
+- ½«ideaµÄ¶«Î÷Êä³öµ½ÎÄ¼þ£¬½Ð×öÊä³öÁ÷
+- ½«ÎÄ¼þÄÚÈÝÊäÈëµ½idea£¬³ÆÎªÊäÈëÁ÷
 
-å¯èƒ½æ ¹æ®å‚è€ƒç³»ä¸åŒï¼Œå¯¹è¿™ä¸ªç†è§£ä¸åŒï¼Œä½†æ˜¯æˆ‘è§‰å¾—è¿™ä¸ªè¾“å…¥è¾“å‡ºæ˜¯ä»¥ideaä¸ºå‚è€ƒç³»çš„
+¿ÉÄÜ¸ù¾Ý²Î¿¼Ïµ²»Í¬£¬¶ÔÕâ¸öÀí½â²»Í¬£¬µ«ÊÇÎÒ¾õµÃÕâ¸öÊäÈëÊä³öÊÇÒÔideaÎª²Î¿¼ÏµµÄ
 
-# æµåˆ†ç±»
+# Á÷·ÖÀà
 
-## æ ¹æ®ä¼ è¾“æ•°æ®åˆ†ç±»
+## ¸ù¾Ý´«ÊäÊý¾Ý·ÖÀà
 
-æ ¹æ®ä¼ è¾“æ•°æ®ä¸åŒï¼Œåˆ†ä¸ºå­—èŠ‚æµå’Œå­—ç¬¦æµ
+¸ù¾Ý´«ÊäÊý¾Ý²»Í¬£¬·ÖÎª×Ö½ÚÁ÷ºÍ×Ö·ûÁ÷
 
-|        | å­—èŠ‚æµ       | å­—ç¬¦æµ |
+|        | ×Ö½ÚÁ÷       | ×Ö·ûÁ÷ |
 | ------ | ------------ | ------ |
-| è¾“å‡ºæµ | OutputStream | Writer |
-| è¾“å…¥æµ | InputStream  | Reader |
+| Êä³öÁ÷ | OutputStream | Writer |
+| ÊäÈëÁ÷ | InputStream  | Reader |
 
-ä¸Šé¢çš„ä¹Ÿæ˜¯ Java IOæµä¸­çš„å››å¤§åŸºæµã€‚è¿™å››å¤§åŸºæµéƒ½æ˜¯æŠ½è±¡ç±»ï¼Œå…¶ä»–æµéƒ½æ˜¯ç»§æ‰¿äºŽè¿™å››å¤§åŸºæµçš„ã€‚ 
+ÉÏÃæµÄÒ²ÊÇ Java IOÁ÷ÖÐµÄËÄ´ó»ùÁ÷¡£ÕâËÄ´ó»ùÁ÷¶¼ÊÇ³éÏóÀà£¬ÆäËûÁ÷¶¼ÊÇ¼Ì³ÐÓÚÕâËÄ´ó»ùÁ÷µÄ¡£ 
 
-1) å­—èŠ‚æµï¼šæ•°æ®æµä¸­æœ€å°çš„æ•°æ®å•å…ƒæ˜¯å­—èŠ‚ 
+1) ×Ö½ÚÁ÷£ºÊý¾ÝÁ÷ÖÐ×îÐ¡µÄÊý¾Ýµ¥ÔªÊÇ×Ö½Ú 
 
-2) å­—ç¬¦æµï¼šæ•°æ®æµä¸­æœ€å°çš„æ•°æ®å•å…ƒæ˜¯å­—ç¬¦ï¼Œ Javaä¸­çš„å­—ç¬¦æ˜¯Unicodeç¼–ç ï¼Œä¸€ä¸ªå­—ç¬¦å ç”¨ä¸¤ä¸ªå­—èŠ‚ï¼ˆæ— è®ºä¸­æ–‡è¿˜æ˜¯è‹±æ–‡éƒ½æ˜¯ä¸¤ä¸ªå­—èŠ‚ï¼‰
+2) ×Ö·ûÁ÷£ºÊý¾ÝÁ÷ÖÐ×îÐ¡µÄÊý¾Ýµ¥ÔªÊÇ×Ö·û£¬ JavaÖÐµÄ×Ö·ûÊÇUnicode±àÂë£¬Ò»¸ö×Ö·ûÕ¼ÓÃÁ½¸ö×Ö½Ú£¨ÎÞÂÛÖÐÎÄ»¹ÊÇÓ¢ÎÄ¶¼ÊÇÁ½¸ö×Ö½Ú£©
 
-## æ ¹æ®åŠŸèƒ½åˆ†ç±»
+## ¸ù¾Ý¹¦ÄÜ·ÖÀà
 
-æ ¹æ®åŠŸèƒ½åˆ†ä¸ºèŠ‚ç‚¹æµå’ŒåŒ…è£…æµ
+¸ù¾Ý¹¦ÄÜ·ÖÎª½ÚµãÁ÷ºÍ°ü×°Á÷
 
-- èŠ‚ç‚¹æµï¼šå¯ä»¥ä»Žæˆ–å‘ä¸€ä¸ªç‰¹å®šçš„åœ°æ–¹(èŠ‚ç‚¹)è¯»å†™æ•°æ®ï¼Œç›´æŽ¥è¿žæŽ¥æ•°æ®æºã€‚å¦‚æœ€å¸¸è§çš„æ˜¯æ–‡ä»¶çš„FileReaderï¼Œè¿˜å¯ä»¥æ˜¯æ•°ç»„ã€ç®¡é“ã€å­—ç¬¦ä¸²ï¼Œå…³é”®å­—åˆ†åˆ«ä¸ºByteArray/CharArrayï¼ŒPipedï¼ŒStringã€‚
-- å¤„ç†æµï¼ˆåŒ…è£…æµï¼‰ï¼šå¹¶ä¸ç›´æŽ¥è¿žæŽ¥æ•°æ®æºï¼Œæ˜¯å¯¹ä¸€ä¸ªå·²å­˜åœ¨çš„æµçš„è¿žæŽ¥å’Œå°è£…ï¼Œæ˜¯ä¸€ç§å…¸åž‹çš„è£…é¥°å™¨è®¾è®¡æ¨¡å¼ï¼Œä½¿ç”¨å¤„ç†æµä¸»è¦æ˜¯ä¸ºäº†æ›´æ–¹ä¾¿çš„æ‰§è¡Œè¾“å…¥è¾“å‡ºå·¥ä½œï¼Œå¦‚PrintStreamï¼Œè¾“å‡ºåŠŸèƒ½å¾ˆå¼ºå¤§ï¼Œåˆå¦‚BufferedReaderæä¾›ç¼“å­˜æœºåˆ¶ï¼ŒæŽ¨èè¾“å‡ºæ—¶éƒ½ä½¿ç”¨å¤„ç†æµåŒ…è£…ã€‚
+- ½ÚµãÁ÷£º¿ÉÒÔ´Ó»òÏòÒ»¸öÌØ¶¨µÄµØ·½(½Úµã)¶ÁÐ´Êý¾Ý£¬Ö±½ÓÁ¬½ÓÊý¾ÝÔ´¡£Èç×î³£¼ûµÄÊÇÎÄ¼þµÄFileReader£¬»¹¿ÉÒÔÊÇÊý×é¡¢¹ÜµÀ¡¢×Ö·û´®£¬¹Ø¼ü×Ö·Ö±ðÎªByteArray/CharArray£¬Piped£¬String¡£
+- ´¦ÀíÁ÷£¨°ü×°Á÷£©£º²¢²»Ö±½ÓÁ¬½ÓÊý¾ÝÔ´£¬ÊÇ¶ÔÒ»¸öÒÑ´æÔÚµÄÁ÷µÄÁ¬½ÓºÍ·â×°£¬ÊÇÒ»ÖÖµäÐÍµÄ×°ÊÎÆ÷Éè¼ÆÄ£Ê½£¬Ê¹ÓÃ´¦ÀíÁ÷Ö÷ÒªÊÇÎªÁË¸ü·½±ãµÄÖ´ÐÐÊäÈëÊä³ö¹¤×÷£¬ÈçPrintStream£¬Êä³ö¹¦ÄÜºÜÇ¿´ó£¬ÓÖÈçBufferedReaderÌá¹©»º´æ»úÖÆ£¬ÍÆ¼öÊä³öÊ±¶¼Ê¹ÓÃ´¦ÀíÁ÷°ü×°¡£
 
-ä¸€ä¸ªæµå¯¹è±¡ç»è¿‡å…¶ä»–æµçš„å¤šæ¬¡åŒ…è£…ï¼Œç§°ä¸ºæµçš„é“¾æŽ¥ã€‚
+Ò»¸öÁ÷¶ÔÏó¾­¹ýÆäËûÁ÷µÄ¶à´Î°ü×°£¬³ÆÎªÁ÷µÄÁ´½Ó¡£
 
-æ³¨æ„ï¼šä¸€ä¸ªIOæµå¯ä»¥å³æ˜¯è¾“å…¥æµåˆæ˜¯å­—èŠ‚æµåˆæˆ–æ˜¯ä»¥å…¶ä»–æ–¹å¼åˆ†ç±»çš„æµç±»åž‹ï¼Œæ˜¯ä¸å†²çªçš„ã€‚æ¯”å¦‚FileInputStreamï¼Œå®ƒæ—¢æ˜¯è¾“å…¥æµåˆæ˜¯å­—èŠ‚æµè¿˜æ˜¯æ–‡ä»¶èŠ‚ç‚¹æµ
+×¢Òâ£ºÒ»¸öIOÁ÷¿ÉÒÔ¼´ÊÇÊäÈëÁ÷ÓÖÊÇ×Ö½ÚÁ÷ÓÖ»òÊÇÒÔÆäËû·½Ê½·ÖÀàµÄÁ÷ÀàÐÍ£¬ÊÇ²»³åÍ»µÄ¡£±ÈÈçFileInputStream£¬Ëü¼ÈÊÇÊäÈëÁ÷ÓÖÊÇ×Ö½ÚÁ÷»¹ÊÇÎÄ¼þ½ÚµãÁ÷
 
-## ä¸€äº›ç‰¹åˆ«çš„çš„æµç±»åž‹
+## Ò»Ð©ÌØ±ðµÄµÄÁ÷ÀàÐÍ
 
-- è½¬æ¢æµï¼šè½¬æ¢æµåªæœ‰å­—èŠ‚æµè½¬æ¢ä¸ºå­—ç¬¦æµï¼Œå› ä¸ºå­—ç¬¦æµä½¿ç”¨èµ·æ¥æ›´æ–¹ä¾¿ï¼Œæˆ‘ä»¬åªä¼šå‘æ›´æ–¹ä¾¿ä½¿ç”¨çš„æ–¹å‘è½¬åŒ–ã€‚å¦‚ï¼šInputStreamReaderä¸ŽOutputStreamWriterã€‚
-- ç¼“å†²æµï¼šæœ‰å…³é”®å­—Bufferedï¼Œä¹Ÿæ˜¯ä¸€ç§å¤„ç†æµï¼Œä¸ºå…¶åŒ…è£…çš„æµå¢žåŠ äº†ç¼“å­˜åŠŸèƒ½ï¼Œæé«˜äº†è¾“å…¥è¾“å‡ºçš„æ•ˆçŽ‡ï¼Œå¢žåŠ ç¼“å†²åŠŸèƒ½åŽéœ€è¦ä½¿ç”¨flush()æ‰èƒ½å°†ç¼“å†²åŒºä¸­å†…å®¹å†™å…¥åˆ°å®žé™…çš„ç‰©ç†èŠ‚ç‚¹ã€‚ä½†æ˜¯ï¼Œåœ¨çŽ°åœ¨ç‰ˆæœ¬çš„Javaä¸­ï¼Œåªéœ€è®°å¾—å…³é—­è¾“å‡ºæµï¼ˆè°ƒç”¨close()æ–¹æ³•ï¼‰ï¼Œå°±ä¼šè‡ªåŠ¨æ‰§è¡Œè¾“å‡ºæµçš„flush()æ–¹æ³•ï¼Œå¯ä»¥ä¿è¯å°†ç¼“å†²åŒºä¸­å†…å®¹å†™å…¥ã€‚
-- å¯¹è±¡æµï¼šæœ‰å…³é”®å­—Objectï¼Œä¸»è¦ç”¨äºŽå°†ç›®æ ‡å¯¹è±¡ä¿å­˜åˆ°ç£ç›˜ä¸­æˆ–å…è®¸åœ¨ç½‘ç»œä¸­ç›´æŽ¥ä¼ è¾“å¯¹è±¡æ—¶ä½¿ç”¨ï¼ˆå¯¹è±¡åºåˆ—åŒ–ï¼‰
+- ×ª»»Á÷£º×ª»»Á÷Ö»ÓÐ×Ö½ÚÁ÷×ª»»Îª×Ö·ûÁ÷£¬ÒòÎª×Ö·ûÁ÷Ê¹ÓÃÆðÀ´¸ü·½±ã£¬ÎÒÃÇÖ»»áÏò¸ü·½±ãÊ¹ÓÃµÄ·½Ïò×ª»¯¡£Èç£ºInputStreamReaderÓëOutputStreamWriter¡£
+- »º³åÁ÷£ºÓÐ¹Ø¼ü×ÖBuffered£¬Ò²ÊÇÒ»ÖÖ´¦ÀíÁ÷£¬ÎªÆä°ü×°µÄÁ÷Ôö¼ÓÁË»º´æ¹¦ÄÜ£¬Ìá¸ßÁËÊäÈëÊä³öµÄÐ§ÂÊ£¬Ôö¼Ó»º³å¹¦ÄÜºóÐèÒªÊ¹ÓÃflush()²ÅÄÜ½«»º³åÇøÖÐÄÚÈÝÐ´Èëµ½Êµ¼ÊµÄÎïÀí½Úµã¡£µ«ÊÇ£¬ÔÚÏÖÔÚ°æ±¾µÄJavaÖÐ£¬Ö»Ðè¼ÇµÃ¹Ø±ÕÊä³öÁ÷£¨µ÷ÓÃclose()·½·¨£©£¬¾Í»á×Ô¶¯Ö´ÐÐÊä³öÁ÷µÄflush()·½·¨£¬¿ÉÒÔ±£Ö¤½«»º³åÇøÖÐÄÚÈÝÐ´Èë¡£
+- ¶ÔÏóÁ÷£ºÓÐ¹Ø¼ü×ÖObject£¬Ö÷ÒªÓÃÓÚ½«Ä¿±ê¶ÔÏó±£´æµ½´ÅÅÌÖÐ»òÔÊÐíÔÚÍøÂçÖÐÖ±½Ó´«Êä¶ÔÏóÊ±Ê¹ÓÃ£¨¶ÔÏóÐòÁÐ»¯£©
 
-# è‡ªå·±å¯¹ä½¿ç”¨çš„ä¸€äº›ç†è§£
+# ×Ô¼º¶ÔÊ¹ÓÃµÄÒ»Ð©Àí½â
 
-## ä¾‹ä¸€
+## ÀýÒ»
 
-åœ¨äº†è§£äº†ä¸Šé¢çš„æµåŽï¼Œæˆ‘ä»¬ä¸»è¦æ˜¯æŽŒæ¡å…¶ä½¿ç”¨ï¼Œåœ¨javaä¸­ï¼Œæˆ‘ä»¬å‘½ä»¤æ‰§è¡Œçš„ç»“æžœæ˜¯æ²¡æœ‰å›žæ˜¾çš„ï¼Œä½†æ˜¯å‘¢ï¼Œå‘½ä»¤æ‰§è¡ŒåŽè¿”å›žçš„æ˜¯ä¸€ä¸ªProccesså¯¹è±¡ï¼Œæˆ‘ä»¬å¯ä»¥èŽ·å–ä»–çš„å­—èŠ‚æµï¼Œç„¶åŽé€šè¿‡ç¼“å†²æµæŒ¨ä¸ªæ‰“å°
+ÔÚÁË½âÁËÉÏÃæµÄÁ÷ºó£¬ÎÒÃÇÖ÷ÒªÊÇÕÆÎÕÆäÊ¹ÓÃ£¬ÔÚjavaÖÐ£¬ÎÒÃÇÃüÁîÖ´ÐÐµÄ½á¹ûÊÇÃ»ÓÐ»ØÏÔµÄ£¬µ«ÊÇÄØ£¬ÃüÁîÖ´ÐÐºó·µ»ØµÄÊÇÒ»¸öProccess¶ÔÏó£¬ÎÒÃÇ¿ÉÒÔ»ñÈ¡ËûµÄ×Ö½ÚÁ÷£¬È»ºóÍ¨¹ý»º³åÁ÷°¤¸ö´òÓ¡
 
 ```
 package test;
@@ -80,9 +80,9 @@ public class io {
 }
 ```
 
-å…ˆæ¥è§£é‡Šä¸€ä¸‹ä¸Šé¢çš„ä»£ç ï¼Œé¦–å…ˆæˆ‘ä»¬èŽ·å–äº†å‘½ä»¤æ‰§è¡Œçš„å­—èŠ‚è¾“å…¥æµï¼Œä½†æ˜¯æˆ‘ä»¬æœ€åŽæ‰“å°çš„æ—¶å€™éœ€è¦æ‰“å°å­—ç¬¦ä¸²ï¼Œæ‰€ä»¥æˆ‘ä»¬éœ€è¦å†ç»™å®ƒè½¬åŒ–æˆå­—ç¬¦è¾“å…¥æµï¼Œä½†æ˜¯æˆ‘ä»¬æœ€åŽæ‰“å°çš„æ—¶å€™éœ€è¦ç”¨ç¼“å†²æµæŠŠå‘½ä»¤æ‰§è¡Œæ²¡ä¸€è¡Œçš„ç»“æžœæ‰“å°å‡ºæ¥ï¼Œæ‰€ä»¥å†æŠŠå­—ç¬¦è¾“å…¥æµæ”¾è¿›ç¼“å†²æµåŽ»ï¼Œæœ€åŽé€šè¿‡whileå¾ªçŽ¯è¯»ï¼Œç„¶åŽæ‰“å°ï¼Œç›´åˆ°ç»“æŸ
+ÏÈÀ´½âÊÍÒ»ÏÂÉÏÃæµÄ´úÂë£¬Ê×ÏÈÎÒÃÇ»ñÈ¡ÁËÃüÁîÖ´ÐÐµÄ×Ö½ÚÊäÈëÁ÷£¬µ«ÊÇÎÒÃÇ×îºó´òÓ¡µÄÊ±ºòÐèÒª´òÓ¡×Ö·û´®£¬ËùÒÔÎÒÃÇÐèÒªÔÙ¸øËü×ª»¯³É×Ö·ûÊäÈëÁ÷£¬µ«ÊÇÎÒÃÇ×îºó´òÓ¡µÄÊ±ºòÐèÒªÓÃ»º³åÁ÷°ÑÃüÁîÖ´ÐÐÃ»Ò»ÐÐµÄ½á¹û´òÓ¡³öÀ´£¬ËùÒÔÔÙ°Ñ×Ö·ûÊäÈëÁ÷·Å½ø»º³åÁ÷È¥£¬×îºóÍ¨¹ýwhileÑ­»·¶Á£¬È»ºó´òÓ¡£¬Ö±µ½½áÊø
 
-é™¤æ­¤ä¹‹å¤–ï¼Œä¹Ÿå¯ä»¥ç”¨StringBuffer
+³ý´ËÖ®Íâ£¬Ò²¿ÉÒÔÓÃStringBuffer
 
 ```
 package test;
@@ -99,9 +99,9 @@ public class T0WN {
 
         try {
             p = Runtime.getRuntime().exec(cmd);
-            InputStream fis = p.getInputStream();//å–å¾—å‘½ä»¤ç»“æžœçš„è¾“å‡ºæµ
-            InputStreamReader isr = new InputStreamReader(fis);//ç”¨ä¸€ä¸ªè¯»è¾“å‡ºæµç±»åŽ»è¯»
-            BufferedReader br = new BufferedReader(isr);//ç”¨ç¼“å†²å™¨è¯»è¡Œ
+            InputStream fis = p.getInputStream();//È¡µÃÃüÁî½á¹ûµÄÊä³öÁ÷
+            InputStreamReader isr = new InputStreamReader(fis);//ÓÃÒ»¸ö¶ÁÊä³öÁ÷ÀàÈ¥¶Á
+            BufferedReader br = new BufferedReader(isr);//ÓÃ»º³åÆ÷¶ÁÐÐ
             String line = null;
             StringBuffer buffer = new StringBuffer();
             while ((line = br.readLine())!=null){
@@ -109,7 +109,7 @@ public class T0WN {
             }
 //            throw new Exception(buffer.toString());
             System.out.println(buffer.toString());
-//            while ((line = br.readLine()) != null) {//ç›´åˆ°è¯»å®Œä¸ºæ­¢
+//            while ((line = br.readLine()) != null) {//Ö±µ½¶ÁÍêÎªÖ¹
 //                System.out.println(line);
 //            }
         } catch (IOException e) {
@@ -119,11 +119,11 @@ public class T0WN {
 }
 ```
 
-æœ€åŽå†toStringè½¬æ¢ä¸€ä¸‹
+×îºóÔÙtoString×ª»»Ò»ÏÂ
 
-## ä¾‹äºŒ
+## Àý¶þ
 
-åœ¨ååºåˆ—åŒ–çš„æ—¶å€™ï¼Œæˆ‘ä»¬ç»å¸¸çœ‹åˆ°ä¸€ä¸ªByteArrayInputStream
+ÔÚ·´ÐòÁÐ»¯µÄÊ±ºò£¬ÎÒÃÇ¾­³£¿´µ½Ò»¸öByteArrayInputStream
 
 ```
 byte[] b = Base64.getDecoder().decode(data);
@@ -132,11 +132,11 @@ ObjectInputStream ois = new ObjectInputStream(bis);
 ois.readObject();
 ```
 
-é¦–å…ˆBase64.getDecoder().decode(data);è¿”å›žçš„æ˜¯ä¸€ä¸ªå­—èŠ‚æ•°ç»„ï¼Œæˆ‘ä»¬å†æŠŠè¿™ä¸ªå­—èŠ‚æ•°ç»„æ”¾åˆ°ä¸€ä¸ªå­—èŠ‚è¾“å…¥æµé‡Œé¢åŽ»ï¼Œå› ä¸ºååºåˆ—åŒ–æ˜¯ç”¨çš„å¯¹è±¡è¾“å…¥æµï¼Œæ‰€ä»¥å†æŠŠè¿™ä¸ªå­—èŠ‚æµæ”¾åˆ°å¯¹è±¡æµé‡Œé¢åŽ»ï¼Œæœ€åŽè°ƒç”¨readObjectå°±å¯ä»¥ååºåˆ—åŒ–æˆ‘ä»¬base64ç¼–ç çš„ç±»äº†
+Ê×ÏÈBase64.getDecoder().decode(data);·µ»ØµÄÊÇÒ»¸ö×Ö½ÚÊý×é£¬ÎÒÃÇÔÙ°ÑÕâ¸ö×Ö½ÚÊý×é·Åµ½Ò»¸ö×Ö½ÚÊäÈëÁ÷ÀïÃæÈ¥£¬ÒòÎª·´ÐòÁÐ»¯ÊÇÓÃµÄ¶ÔÏóÊäÈëÁ÷£¬ËùÒÔÔÙ°ÑÕâ¸ö×Ö½ÚÁ÷·Åµ½¶ÔÏóÁ÷ÀïÃæÈ¥£¬×îºóµ÷ÓÃreadObject¾Í¿ÉÒÔ·´ÐòÁÐ»¯ÎÒÃÇbase64±àÂëµÄÀàÁË
 
-## ä¾‹ä¸‰
+## ÀýÈý
 
-å°†ç±»è½¬æ¢æˆå­—èŠ‚æ•°ç»„
+½«Àà×ª»»³É×Ö½ÚÊý×é
 
 ```
 InputStream inputStream = new FileInputStream("/Users/DawnT0wn/IdeaProjects/Spring/src/main/java/ClassLoader/Sun.class");
@@ -148,18 +148,18 @@ while ((in = inputStream.read()) !=-1 ){
 byte[] bytes = bos.toByteArray();
 ```
 
-è¯»ä¸€ä¸ªclassæ–‡ä»¶ï¼Œå› ä¸ºæœ€åŽæ˜¯è¾“å‡ºåˆ°ä¸€ä¸ªå­—èŠ‚æ•°ç»„é‡Œé¢åŽ»ï¼Œæ‰€ä»¥å®žä¾‹åŒ–ä¸€ä¸ªå­—èŠ‚è¾“å‡ºæµå¯¹è±¡ï¼Œè¿™ä¸ªæž„é€ å™¨ä¸ºç©ºæˆ–è€…ä¸ºä¸€ä¸ªå­—èŠ‚å¤§å°
+¶ÁÒ»¸öclassÎÄ¼þ£¬ÒòÎª×îºóÊÇÊä³öµ½Ò»¸ö×Ö½ÚÊý×éÀïÃæÈ¥£¬ËùÒÔÊµÀý»¯Ò»¸ö×Ö½ÚÊä³öÁ÷¶ÔÏó£¬Õâ¸ö¹¹ÔìÆ÷Îª¿Õ»òÕßÎªÒ»¸ö×Ö½Ú´óÐ¡
 
-è¿™é‡Œå°±æ²¡æœ‰è®¾ç½®åˆå§‹å€¼ï¼Œå¯¹é‡Œé¢è¾“å‡ºæµå¯¹å†…å®¹éœ€è¦æˆ‘ä»¬ç”¨InputStream.readæŒ¨ç€è¯»å­—èŠ‚æµå†™å…¥ByteArrayOutputStreamå¯¹è±¡é‡Œé¢åŽ»ï¼ˆåˆ©ç”¨writeæ–¹æ³•ï¼‰
+ÕâÀï¾ÍÃ»ÓÐÉèÖÃ³õÊ¼Öµ£¬¶ÔÀïÃæÊä³öÁ÷¶ÔÄÚÈÝÐèÒªÎÒÃÇÓÃInputStream.read°¤×Å¶Á×Ö½ÚÁ÷Ð´ÈëByteArrayOutputStream¶ÔÏóÀïÃæÈ¥£¨ÀûÓÃwrite·½·¨£©
 
-æœ€åŽï¼Œè™½ç„¶æˆ‘ä»¬å†™å…¥çš„æ˜¯å­—èŠ‚ï¼Œä½†æ˜¯å¯¹äºŽè¿™ä¸ªè¾“å‡ºæµï¼Œå¯¹è±¡è¿˜æ˜¯ByteArrayOutputStreamï¼Œæ‰€ä»¥æœ€åŽæˆ‘ä»¬è½¬åŒ–ä¸ºå­—èŠ‚æ•°ç»„éœ€è¦è°ƒç”¨ä¸€æ¬¡toByteArray
+×îºó£¬ËäÈ»ÎÒÃÇÐ´ÈëµÄÊÇ×Ö½Ú£¬µ«ÊÇ¶ÔÓÚÕâ¸öÊä³öÁ÷£¬¶ÔÏó»¹ÊÇByteArrayOutputStream£¬ËùÒÔ×îºóÎÒÃÇ×ª»¯Îª×Ö½ÚÊý×éÐèÒªµ÷ÓÃÒ»´ÎtoByteArray
 
-# æ€»ç»“
+# ×Ü½á
 
-å…¶å®žæ€»çš„æ¥è¯´ï¼Œå¯¹äºŽI/Oç±»åž‹çš„ä¸œè¥¿ï¼Œæˆ‘ä»¬ä¸»è¦æ˜¯è¦åˆ†æ¸…æ˜¯è¾“å‡ºæµè¿˜æ˜¯è¾“å…¥æµï¼ŒæŽ¥ä¸‹æ¥å°±æ˜¯åˆ†æ¸…æ˜¯å­—èŠ‚æµè¿˜æ˜¯å­—ç¬¦æµï¼Œæˆ‘ä»¬ç©¶ç«Ÿéœ€è¦ä»€ä¹ˆï¼Œæ˜¯å­—ç¬¦çš„è¯å°±ç”¨Reader.readlineï¼Œæ˜¯å­—èŠ‚çš„è¯å°±ç”¨InputStream.readï¼Œå¦å¤–è¿˜éœ€è¦çœ‹çœ‹å„ä¸ªIOå¯¹è±¡éœ€è¦çš„å‚æ•°ç±»åž‹ï¼Œæœ‰äº›æ˜¯æ— å‚çš„
+ÆäÊµ×ÜµÄÀ´Ëµ£¬¶ÔÓÚI/OÀàÐÍµÄ¶«Î÷£¬ÎÒÃÇÖ÷ÒªÊÇÒª·ÖÇåÊÇÊä³öÁ÷»¹ÊÇÊäÈëÁ÷£¬½ÓÏÂÀ´¾ÍÊÇ·ÖÇåÊÇ×Ö½ÚÁ÷»¹ÊÇ×Ö·ûÁ÷£¬ÎÒÃÇ¾¿¾¹ÐèÒªÊ²Ã´£¬ÊÇ×Ö·ûµÄ»°¾ÍÓÃReader.readline£¬ÊÇ×Ö½ÚµÄ»°¾ÍÓÃInputStream.read£¬ÁíÍâ»¹ÐèÒª¿´¿´¸÷¸öIO¶ÔÏóÐèÒªµÄ²ÎÊýÀàÐÍ£¬ÓÐÐ©ÊÇÎÞ²ÎµÄ
 
 
 
-å‚è€ƒé“¾æŽ¥
+²Î¿¼Á´½Ó
 
 https://www.cnblogs.com/furaywww/p/8849850.html

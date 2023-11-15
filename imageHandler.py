@@ -34,7 +34,7 @@ for root, dirs, files in os.walk(root_folder):
                 os.makedirs(images_subfolder)
 
             # 读取 Markdown 文件内容
-            with open(new_md_path, "r") as f:
+            with open(new_md_path, "r", encoding='UTF-8') as f:
                 content = f.read()
 
             if sys.platform.startswith("darwin"):
@@ -66,7 +66,7 @@ for root, dirs, files in os.walk(root_folder):
                 print(e)
 
             # 将更新后的内容写回 Markdown 文件
-            with open(new_md_path, "w") as f:
+            with open(new_md_path, "w", encoding='UTF-8') as f:
                 f.write(content)
 
 print("完成目录创建、文件移动、图片复制和路径替换")
