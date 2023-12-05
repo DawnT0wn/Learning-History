@@ -18,7 +18,7 @@ Kerberos 是一种由 MIT 提出用来在非安全网络中对个人通信进行
 - TGS (Ticket Granting Service): 票据授予服务器
 - KDC (Key Distribution Center): 密钥分发中心
 - TGT (Ticket Granting Ticket): 票据授权票据，或者说：票据的票据
-- ST (Servre Ticket): 服务票据
+- ST (Server Ticket): 服务票据
 
 根据上图，总共分为 6 步，这里一步一步进行解释
 
@@ -36,7 +36,7 @@ Client 与 Server 的交互
 
 ## 第一阶段：客户端 Clinet 与认证服务器 AS 通信
 
-首先用户在客户端输入了用户名和密码，在客户端会根据密码生成一个Hash，这个Hash就说Client的密钥（用户密钥）
+首先用户在客户端输入了用户名和密码，在客户端会根据密码生成一个Hash，这个Hash就是Client的密钥（用户密钥）
 
 **第一步**：客户端Client向认证服务器AS发起请求，内容为用户名，客户端地址和当前时间戳
 
