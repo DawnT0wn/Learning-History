@@ -170,7 +170,9 @@ download "C:/20231212112608_BloodHound.zip" "/root/"
 
 ![image-20231212134800467](images/19.png)
 
-可以看到能够打dcsync，直接抓到了Administrator的hash
+这里可能有点问题，但是我看别人在bloodhound中可以直接看到`XIAORANG-WIN7$`这台机器有DCSync权限
+
+直接抓到了Administrator的hash
 
 ![image-20231212114056424](images/20.png)
 
