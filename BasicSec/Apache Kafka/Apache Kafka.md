@@ -302,6 +302,51 @@ public class CustomNewConsumer {
 
 ![image-20240321151922053](images/12.png)
 
+# 利用Python操作Kafka
+
+## 创建生产者
+
+这些都源于最近写的爬虫需要接入Kafka的代码的部分函数
+
+```python
+def send_message_to_kafka(final_use_record_list):
+    bootstrap_servers = get_kafka_server()
+    topic_name = get_kafka_topic()
+# 创建kafka生产者
+producer = KafkaProducer(bootstrap_servers=bootstrap_servers, value_serializer=lambda x: json.dumps(x).encode('utf-8'), api_version=(0, 10, 2))
+
+# print(final_use_record_list)
+for use_record in final_use_record_list:
+    producer.send(topic_name, use_record)
+
+# 关闭生产者
+producer.close()
+```
+对于生产者的话只需要将消息发布到kafka，只需要对应的Kafka服务器地址和topic，与分区和副本无关
+
+## 创建消费者
+
+    def consume_messages_from_kafka(group_id):
+        bootstrap_servers = get_kafka_server()
+        topic_name = get_kafka_topic()
+    # 创建kafka消费者
+    consumer = KafkaConsumer(
+        topic_name,
+        bootstrap_servers=bootstrap_servers,
+        group_id=group_id,
+        auto_offset_reset='earliest',
+        value_deserializer=lambda x: json.loads(x.decode('utf-8'))
+    )
+    
+    # 消费消息
+    for message in consumer:
+        print("Received message:", message.value)
+    
+    # 关闭消费者
+    consumer.close()
+
+对于消费者的话，就需要提供自己的group_id来进行消费，auto_offset_reset的话有latest和earliset，从最早或者最晚进行消费，当消费后，如果重新运行就拿不到对应的信息了，需要换一个group_id
+
 
 
 对于Kafka，还有更多的应用，他可以结合Storm对Kafka数据进行计算，在实际场景中，可以用kafka手机各种服务的日志，通过Kafka以接口服务的方式开放给各种消费者，例如Flink，Hadoop，ElasticSearch，这样可以实现分布式系统中海量日志数据的处理和分析。
