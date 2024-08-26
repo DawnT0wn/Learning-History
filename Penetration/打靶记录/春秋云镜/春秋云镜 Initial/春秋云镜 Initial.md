@@ -172,6 +172,12 @@ download "C:/20231212112608_BloodHound.zip" "/root/"
 
 这里可能有点问题，但是我看别人在bloodhound中可以直接看到`XIAORANG-WIN7$`这台机器有DCSync权限
 
+这里的问题我用sharphound2.0以上不兼容旧版的bloodhound，旧版的应该用sharphound1.1
+
+如果用2.0以上就要用bloodhound ce
+
+![](images/QQ_1724595915236.png)
+
 直接抓到了Administrator的hash
 
 ![image-20231212114056424](images/20.png)
