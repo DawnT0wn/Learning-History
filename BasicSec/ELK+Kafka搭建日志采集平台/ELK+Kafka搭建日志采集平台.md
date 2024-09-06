@@ -175,7 +175,7 @@ discovery.zen.minimum_master_nodes: 2
 curl "http://ip:port/_cat/nodes"
 ```
 
-![QQ_1724402776200](images/6.png)
+![QQ_1725621227947](images/6.png)
 
 开启远程访问，elasticsearch.yml
 
