@@ -129,7 +129,7 @@ public class preparetest {
         //2.通过 DriverManager获取数据库连接
         String url="jdbc:mysql://localhost:3306/test?useServerPrepStmts=true";
         String username="root";
-        String password="Gatc_327509";
+        String password="xxxxx";
         Connection conn= DriverManager.getConnection(url, username, password);
         //3.通过 Connection对象获取 Statement对象
         String sql="select * from users where id = ?";
