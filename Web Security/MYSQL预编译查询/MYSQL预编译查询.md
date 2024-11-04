@@ -249,7 +249,7 @@ PDO可以被认作是一种通过编译SQL语句模板来运行SQL语句的机�
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "Gatc_327509";
+$password = "xxxx";
 $dbname = "test";
 
 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
