@@ -1,1 +1,4 @@
 *.DS_Store
+/gh-md-toc
+/imageHandler.py
+/readme_generate.py
