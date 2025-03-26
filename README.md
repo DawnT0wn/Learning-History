@@ -264,6 +264,7 @@
   - 👉 [Mybits入门](exploitation/Java/Java%20Mybits/Mybits%E5%85%A5%E9%97%A8.md)
   - 👉 [Spring IOC控制反转](exploitation/Java/Java%20Spring%20IOC%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/Spring%20IOC%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC.md)
   - 👉 [Spring Interceptor](exploitation/Java/Java%20Spring%20Interceptor/Spring%20Interceptor.md)
+  - 👉 [SpringBoot整合Nacos与Facade调用区别](exploitation/Java/SpringBoot%E6%95%B4%E5%90%88Nacos%E4%B8%8EFacade%E8%B0%83%E7%94%A8%E5%8C%BA%E5%88%AB/SpringBoot%E6%95%B4%E5%90%88Nacos%E4%B8%8EFacade%E8%B0%83%E7%94%A8%E5%8C%BA%E5%88%AB.md)
 
 ### 📂 Python
   - 👉 [python之socket编程](exploitation/Python/Python%20socket%E7%BC%96%E7%A8%8B/python%E4%B9%8Bsocket%E7%BC%96%E7%A8%8B.md)
