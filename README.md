@@ -52,6 +52,7 @@
 ## 🌟 CloudSec
 
  - 👉 [K8s入门: K8s入门](CloudSec/K8s%E5%85%A5%E9%97%A8/K8s%E5%85%A5%E9%97%A8.md)
+ - 👉 [K8s集群搭建: K8s集群搭建](CloudSec/K8s%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/K8s%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.md)
  - 👉 [云原生docker容器逃逸: 云原生docker容器逃逸](CloudSec/%E4%BA%91%E5%8E%9F%E7%94%9Fdocker%E5%AE%B9%E5%99%A8%E9%80%83%E9%80%B8/%E4%BA%91%E5%8E%9F%E7%94%9Fdocker%E5%AE%B9%E5%99%A8%E9%80%83%E9%80%B8.md)
  - 👉 [云安全之etcd风险解析: 云安全之etcd风险解析](CloudSec/%E4%BA%91%E5%AE%89%E5%85%A8%E4%B9%8Betcd%E9%A3%8E%E9%99%A9%E8%A7%A3%E6%9E%90/%E4%BA%91%E5%AE%89%E5%85%A8%E4%B9%8Betcd%E9%A3%8E%E9%99%A9%E8%A7%A3%E6%9E%90.md)
 
