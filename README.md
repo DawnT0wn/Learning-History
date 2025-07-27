@@ -14,7 +14,7 @@
  - 👉 [Zookeeper使用&&CVE-2024-23944: Zookeeper使用&&CVE-2024-23944](BasicSec/Zookeeper%E4%BD%BF%E7%94%A8%26%26CVE-2024-23944/Zookeeper%E4%BD%BF%E7%94%A8%26%26CVE-2024-23944.md)
  - 👉 [redis: redis](BasicSec/redis/redis.md)
  - 👉 [利用Jenkins+SonarQube+Gitlab实现CICD流程: 利用Jenkins+SonarQube+Gitlab实现CICD流程](BasicSec/%E5%88%A9%E7%94%A8Jenkins%2BSonarQube%2BGitlab%E5%AE%9E%E7%8E%B0CICD%E6%B5%81%E7%A8%8B/%E5%88%A9%E7%94%A8Jenkins%2BSonarQube%2BGitlab%E5%AE%9E%E7%8E%B0CICD%E6%B5%81%E7%A8%8B.md)
- - 👉 [基础知识: 基础知识](BasicSec/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
+ - 👉 [基础知识: 基础知识](BasicSec/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
  - 👉 [浅试Elastic Security: 浅试Elastic Security](BasicSec/%E6%B5%85%E8%AF%95Elastic%20Security/%E6%B5%85%E8%AF%95Elastic%20Security.md)
 
 ---
@@ -44,6 +44,7 @@
 ## 🌟 Casual essay
 
  - 👉 [SpringBoot获取Request对象: SpringBoot获取Request对象](Casual%20essay/SpringBoot%E8%8E%B7%E5%8F%96Request%E5%AF%B9%E8%B1%A1/SpringBoot%E8%8E%B7%E5%8F%96Request%E5%AF%B9%E8%B1%A1.md)
+ - 👉 [lnk钓鱼: lnk钓鱼](Casual%20essay/lnk%E9%92%93%E9%B1%BC/lnk%E9%92%93%E9%B1%BC.md)
  - 👉 [关于断网Java修复打包: 关于断网Java修复打包](Casual%20essay/%E5%85%B3%E4%BA%8E%E6%96%AD%E7%BD%91Java%E4%BF%AE%E5%A4%8D%E6%89%93%E5%8C%85/%E5%85%B3%E4%BA%8E%E6%96%AD%E7%BD%91Java%E4%BF%AE%E5%A4%8D%E6%89%93%E5%8C%85.md)
  - 👉 [在用友NC中反序列化注入内存马: 在用友NC中反序列化注入内存马](Casual%20essay/%E5%9C%A8%E7%94%A8%E5%8F%8BNC%E4%B8%AD%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B3%A8%E5%85%A5%E5%86%85%E5%AD%98%E9%A9%AC/%E5%9C%A8%E7%94%A8%E5%8F%8BNC%E4%B8%AD%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B3%A8%E5%85%A5%E5%86%85%E5%AD%98%E9%A9%AC.md)
  - 👉 [消息队列: 消息队列](Casual%20essay/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.md)
@@ -62,7 +63,7 @@
 
  - 👉 [Bugku 应急响应wp: bugku应急响应wp](Forensics/Bugku%20%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94wp/bugku%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94wp.md)
  - 👉 [Bugku 网络安全事件应急相应: Bugku 网络安全事件应急相应](Forensics/Bugku%20%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E5%BA%94%E6%80%A5%E7%9B%B8%E5%BA%94/Bugku%20%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E5%BA%94%E6%80%A5%E7%9B%B8%E5%BA%94.md)
- - 👉 [windows安全事件ID对应: windows安全事件ID对应](Forensics/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94.md)
+ - 👉 [windows安全事件ID对应: windows安全事件ID对应](Forensics/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94.md)
  - 👉 [流量分析: 流量分析](Forensics/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90.md)
  - 👉 [玄机应急响应- Linux入侵排查: 玄机应急响应- Linux入侵排查](Forensics/%E7%8E%84%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-%20Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/%E7%8E%84%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-%20Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5.md)
  - 👉 [玄机应急响应-Linux日志分析: 玄机应急响应-Linux日志分析](Forensics/%E7%8E%84%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/%E7%8E%84%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90.md)
@@ -185,6 +186,7 @@
   - 👉 [渗透攻击红队域渗透靶场2](Penetration/%E6%89%93%E9%9D%B6%E8%AE%B0%E5%BD%95/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E5%9F%9F%E6%B8%97%E9%80%8F%E9%9D%B6%E5%9C%BA/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E5%9F%9F%E6%B8%97%E9%80%8F%E9%9D%B6%E5%9C%BA2/%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BB%E7%BA%A2%E9%98%9F%E5%9F%9F%E6%B8%97%E9%80%8F%E9%9D%B6%E5%9C%BA2.md)
   - 👉 [理工渗透靶场1](Penetration/%E6%89%93%E9%9D%B6%E8%AE%B0%E5%BD%95/%E7%90%86%E5%B7%A5%E6%B8%97%E9%80%8F%E9%9D%B6%E5%9C%BA1/%E7%90%86%E5%B7%A5%E6%B8%97%E9%80%8F%E9%9D%B6%E5%9C%BA1.md)
 
+ - 👉 [白加黑免杀: 白加黑免杀](Penetration/%E7%99%BD%E5%8A%A0%E9%BB%91%E5%85%8D%E6%9D%80/%E7%99%BD%E5%8A%A0%E9%BB%91%E5%85%8D%E6%9D%80.md)
 
 ---
 ## 🌟 Reverse
