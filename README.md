@@ -14,7 +14,7 @@
  - 👉 [Zookeeper使用&&CVE-2024-23944: Zookeeper使用&&CVE-2024-23944](BasicSec/Zookeeper%E4%BD%BF%E7%94%A8%26%26CVE-2024-23944/Zookeeper%E4%BD%BF%E7%94%A8%26%26CVE-2024-23944.md)
  - 👉 [redis: redis](BasicSec/redis/redis.md)
  - 👉 [利用Jenkins+SonarQube+Gitlab实现CICD流程: 利用Jenkins+SonarQube+Gitlab实现CICD流程](BasicSec/%E5%88%A9%E7%94%A8Jenkins%2BSonarQube%2BGitlab%E5%AE%9E%E7%8E%B0CICD%E6%B5%81%E7%A8%8B/%E5%88%A9%E7%94%A8Jenkins%2BSonarQube%2BGitlab%E5%AE%9E%E7%8E%B0CICD%E6%B5%81%E7%A8%8B.md)
- - 👉 [基础知识: 基础知识](BasicSec/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
+ - 👉 [基础知识: 基础知识](BasicSec/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
  - 👉 [浅试Elastic Security: 浅试Elastic Security](BasicSec/%E6%B5%85%E8%AF%95Elastic%20Security/%E6%B5%85%E8%AF%95Elastic%20Security.md)
 
 ---
@@ -62,7 +62,7 @@
 
  - 👉 [Bugku 应急响应wp: bugku应急响应wp](Forensics/Bugku%20%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94wp/bugku%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94wp.md)
  - 👉 [Bugku 网络安全事件应急相应: Bugku 网络安全事件应急相应](Forensics/Bugku%20%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E5%BA%94%E6%80%A5%E7%9B%B8%E5%BA%94/Bugku%20%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E5%BA%94%E6%80%A5%E7%9B%B8%E5%BA%94.md)
- - 👉 [windows安全事件ID对应: windows安全事件ID对应](Forensics/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94.md)
+ - 👉 [windows安全事件ID对应: windows安全事件ID对应](Forensics/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94/windows%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6ID%E5%AF%B9%E5%BA%94.md)
  - 👉 [流量分析: 流量分析](Forensics/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90.md)
  - 👉 [玄机应急响应- Linux入侵排查: 玄机应急响应- Linux入侵排查](Forensics/%E7%8E%84%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-%20Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/%E7%8E%84%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-%20Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5.md)
  - 👉 [玄机应急响应-Linux日志分析: 玄机应急响应-Linux日志分析](Forensics/%E7%8E%84%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/%E7%8E%84%E6%9C%BA%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90.md)
@@ -259,6 +259,7 @@
 ## 🌟 exploitation
 
 ### 📂 Java
+  - 👉 [Apache flink](exploitation/Java/Flink/Apache%20flink/Apache%20flink.md)
   - 👉 [Java Spring AOP](exploitation/Java/Java%20Spring%20AOP/Java%20Spring%20AOP.md)
   - 👉 [Java Spring Aware](exploitation/Java/Java%20Spring%20Aware/Java%20Spring%20Aware.md)
   - 👉 [Java web](exploitation/Java/Java%20web/Java%20web.md)
